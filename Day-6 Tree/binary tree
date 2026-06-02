@@ -1,0 +1,115 @@
+import java.util.*;
+
+public class BinaryTree {
+
+    class getNode {
+        getNode leftChild;
+        int data;
+        getNode rightChild;
+
+        public getNode(int key) {
+            leftChild = null;
+            data = key;
+            rightChild = null;
+        }
+    }
+
+    getNode root;
+
+    public getNode insert(getNode root, int key) {
+        if (root == null) {
+            root = new getNode(key);
+            return root;
+        }
+
+        if (key < root.data) {
+            root.leftChild = insert(root.leftChild, key);
+        } else {
+            root.rightChild = insert(root.rightChild, key);
+        }
+
+        return root;
+    }
+
+    private void inorder(getNode root) {
+        if (root != null) {
+            inorder(root.leftChild);
+            System.out.print(root.data + " ");
+            inorder(root.rightChild);
+        }
+    }
+
+    public void inorder() {
+        inorder(root);
+        System.out.println();
+    }
+
+    private void preorder(getNode root) {
+        if (root != null) {
+            System.out.print(root.data + " ");
+            preorder(root.leftChild);
+            preorder(root.rightChild);
+        }
+    }
+
+    public void preorder() {
+        preorder(root);
+        System.out.println();
+    }
+
+    private void postorder(getNode root) {
+        if (root != null) {
+            postorder(root.leftChild);
+            postorder(root.rightChild);
+            System.out.print(root.data + " ");
+        }
+    }
+
+    public void postorder() {
+        postorder(root);
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("1. Insert");
+            System.out.println("2. Inorder Traversing");
+            System.out.println("3. Preorder Traversing");
+            System.out.println("4. Postorder Traversing");
+            System.out.println("0. Exit");
+            System.out.print("Enter your choice: ");
+
+            int ch = sc.nextInt();
+
+            switch (ch) {
+                case 1:
+                    int arr[] = {36, 26, 46, 21, 31, 11, 24, 41, 56, 51, 66};
+
+                    for (int i = 0; i < arr.length; i++) {
+                        tree.root = tree.insert(tree.root, arr[i]);
+                    }
+
+                    System.out.println("Nodes inserted.");
+                    break;
+
+                case 2:
+                    tree.inorder();
+                    break;
+
+                case 3:
+                    tree.preorder();
+                    break;
+
+                case 4:
+                    tree.postorder();
+                    break;
+
+                case 0:
+                    System.exit(0);
+            }
+        }
+    }
+}
