@@ -10,18 +10,15 @@ CREATE TABLE Employee(
     EmpSalary DECIMAL(10,2)
 );
 
-2. ALTER
-Add a new column:
+2. ALTER: Add a new column
 
 ALTER TABLE Employee
 ADD EmpAge INT;
 
-3. TRUNCATE
-Remove all records but keep table structure:
+3. TRUNCATE: Remove all records but keep table structure
 
 TRUNCATE TABLE Employee;
 
-4.DROP
-Delete the entire table:
+4.DROP: Delete the entire table
 
 DROP TABLE Employee;
