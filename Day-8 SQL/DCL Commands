@@ -1,0 +1,15 @@
+***DCL (Data Control Language)***
+
+Used to control access permissions.
+
+1. GRANT: Give SELECT permission to user
+
+GRANT SELECT
+ON Employee
+TO User1;
+
+2. REVOKE: Remove SELECT permission
+
+REVOKE SELECT
+ON Employee
+FROM User1;
