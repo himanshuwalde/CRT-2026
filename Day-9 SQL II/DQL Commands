@@ -1,0 +1,15 @@
+***DQL (Data Query Language)***
+
+Used to retrieve data.
+
+1. SELECT All Records:
+  SELECT * FROM Employee;
+
+2. SELECT Specific Columns:
+  SELECT EmpName, EmpSalary
+  FROM Employee;
+
+3. SELECT with Condition:
+  SELECT *
+  FROM Employee
+  WHERE EmpSalary > 50000;
