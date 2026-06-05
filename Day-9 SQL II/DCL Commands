@@ -1,0 +1,37 @@
+***DCL (Data Control Language)***
+
+Used to control access permissions.
+
+1. Create User:
+  CREATE USER sqladmin
+  IDENTIFIED BY himanshu22;
+
+2. GRANT: Give SELECT permission to user
+
+  A. Grant Connect Privilege:
+    GRANT CONNECT TO sqladmin;
+  
+  B. Grant Create Table Privilege:
+    GRANT CREATE TABLE TO sqladmin;
+  
+  C. Grant Multiple Roles:
+    GRANT CONNECT, RESOURCE, DBA
+    TO sqladmin;
+  
+  D. Grant Unlimited Tablespace:
+    GRANT UNLIMITED TABLESPACE
+    TO sqladmin;
+  
+  E. Grant Table Permissions:
+    GRANT SELECT, INSERT, UPDATE, DELETE
+    ON Employee
+    TO sqladmin;
+
+3. REVOKE: Remove SELECT permission
+
+  Revoke Privilege:
+    REVOKE CREATE TABLE
+    FROM sqladmin;
+
+4. Drop User:
+  DROP USER sqladmin;
