@@ -2,11 +2,11 @@
 
 Used to manage transactions.
 
-1. SAVEPOINT
-SAVEPOINT sp1;
+1. SAVEPOINT:
+  SAVEPOINT sp1;
 
-2. ROLLBACK
-ROLLBACK TO sp1;
+2. ROLLBACK:
+  ROLLBACK TO sp1;
 
-3. COMMIT
-COMMIT;
+3. COMMIT:
+  COMMIT;
