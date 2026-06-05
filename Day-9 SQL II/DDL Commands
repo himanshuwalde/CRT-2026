@@ -1,0 +1,27 @@
+***DDL (Data Definition Language)***
+
+Used to define or modify database structure.
+
+1. CREATE:
+    CREATE TABLE Employee(
+        EMPID INT PRIMARY KEY,
+        EMPNAME VARCHAR(50),
+        EMPCITY VARCHAR(50),
+        EMPSALARY DECIMAL(10,2)
+    );
+
+2. ALTER: Add a new column
+
+    ALTER TABLE Employee
+    ADD (PINCODE NUMBER(6));
+
+3. TRUNCATE: Remove all records but keep table structure
+
+    TRUNCATE TABLE Employee;
+
+4.DROP: Delete the entire table
+
+    DROP TABLE Employee;
+
+5. Describe Table:
+    DESC Employee;
