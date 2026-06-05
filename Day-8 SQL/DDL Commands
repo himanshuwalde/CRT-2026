@@ -4,10 +4,10 @@ Used to define or modify database structure.
 
 1. CREATE
 CREATE TABLE Employee(
-    EmpID INT PRIMARY KEY,
-    EmpName VARCHAR(50),
-    EmpCity VARCHAR(50),
-    EmpSalary DECIMAL(10,2)
+    EMPID INT PRIMARY KEY,
+    EMPNAME VARCHAR(50),
+    EMPCITY VARCHAR(50),
+    EMPSALARY DECIMAL(10,2)
 );
 
 2. ALTER: Add a new column
