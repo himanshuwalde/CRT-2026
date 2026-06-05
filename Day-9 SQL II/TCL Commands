@@ -1,0 +1,12 @@
+***TCL (Transaction Control Language)***
+
+Used to manage transactions.
+
+1. SAVEPOINT:
+  SAVEPOINT sp1;
+
+2. ROLLBACK:
+  ROLLBACK TO sp1;
+
+3. COMMIT:
+  COMMIT;
