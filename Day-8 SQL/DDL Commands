@@ -13,7 +13,7 @@ CREATE TABLE Employee(
 2. ALTER: Add a new column
 
 ALTER TABLE Employee
-ADD EmpAge INT;
+ADD (PINCODE NUMBER(6));
 
 3. TRUNCATE: Remove all records but keep table structure
 
@@ -22,3 +22,6 @@ TRUNCATE TABLE Employee;
 4.DROP: Delete the entire table
 
 DROP TABLE Employee;
+
+5. Describe Table
+DESC Employee;
