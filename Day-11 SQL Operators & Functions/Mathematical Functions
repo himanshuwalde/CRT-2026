@@ -1,0 +1,89 @@
+1. SQL> SELECT ABS(-44) FROM DUAL;
+
+  ABS(-44)
+----------
+        44
+
+2. SQL> SELECT ABS(44) FROM DUAL;
+
+   ABS(44)
+----------
+        44
+
+3. SQL> SELECT POWER(2, 4) FROM DUAL;
+
+POWER(2,4)
+----------
+        16
+
+4. SQL> SELECT SQRT(16) FROM DUAL;
+
+  SQRT(16)
+----------
+         4
+
+5. SQL> SELECT EXP(4) FROM DUAL;
+
+    EXP(4)
+----------
+  54.59815
+
+6. SQL> SELECT EXP(4) AS e_to_2s_power FROM DUAL;
+
+E_TO_2S_POWER
+-------------
+     54.59815
+
+7. SQL> SELECT GREATEST(3, 12, 34, 8, 25) FROM DUAL;
+
+GREATEST(3,12,34,8,25)
+----------------------
+                    34
+
+8. SQL> SELECT LEAST(3, 12, 34, 8, 25) FROM DUAL;
+
+LEAST(3,12,34,8,25)
+-------------------
+                  3
+
+9. SQL> SELECT ROUND(4, 7) FROM DUAL;
+
+ROUND(4,7)
+----------
+         4
+
+10. SQL> SELECT FLOOR(4.7) FROM DUAL;
+
+FLOOR(4.7)
+----------
+         4
+
+11. SQL> SELECT CEIL(4.7) FROM DUAL;
+
+ CEIL(4.7)
+----------
+         5
+
+12. SQL> SELECT TRUNC(153.275, 2) FROM DUAL;
+
+TRUNC(153.275,2)
+----------------
+          153.27
+
+13. SQL> SELECT TRUNC(153.275765, 0) FROM DUAL;
+
+TRUNC(153.275765,0)
+-------------------
+                153
+
+14. SQL> SELECT MOD(8, 3) FROM DUAL;
+
+  MOD(8,3)
+----------
+         2
+
+15. SQL> SELECT MOD(8, 3) AS "Find Mod" FROM DUAL;
+
+  Find Mod
+----------
+         2
