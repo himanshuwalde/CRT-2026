@@ -87,3 +87,15 @@ TRUNC(153.275765,0)
   Find Mod
 ----------
          2
+
+16. SQL> SELECT 10+20 FROM DUAL;
+
+     10+20
+----------
+        30
+
+17. SQL> SELECT SYSDATE FROM DUAL;
+
+SYSDATE
+---------
+06-JUN-26
