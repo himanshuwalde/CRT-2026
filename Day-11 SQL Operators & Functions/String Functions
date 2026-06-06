@@ -1,0 +1,119 @@
+1. SQL> SELECT LOWER('HELP4CODE ELEARNING') FROM dual;
+
+LOWER('HELP4CODEELE
+-------------------
+help4code elearning
+
+2. SQL> SELECT UPPER('help4code elearning') FROM dual;
+
+UPPER('HELP4CODEELE
+-------------------
+HELP4CODE ELEARNING
+
+3. SQL> SELECT INITCAP('help4code elearning') "Company Name" FROM dual;
+
+Company Name
+-------------------
+Help4code Elearning
+
+4. SQL> SELECT SUBSTR('Help4code Elearning', 1, 7) FROM dual;
+
+SUBSTR(
+-------
+Help4co
+
+5. SQL> SELECT TRIM('   Help4code Elearning   ') FROM dual;
+
+TRIM('HELP4CODEELEA
+-------------------
+Help4code Elearning
+
+6. SQL> SELECT LTRIM('123Help4code Elearning', '123') FROM dual;
+
+LTRIM('123HELP4CODE
+-------------------
+Help4code Elearning
+
+7. SQL> SELECT RTRIM('Help4code Elearning234', '234') FROM dual;
+
+RTRIM('HELP4CODEELE
+-------------------
+Help4code Elearning
+
+8. SQL> SELECT RPAD('Help4code', 15, '#') FROM dual;
+
+RPAD('HELP4CODE
+---------------
+Help4code######
+
+9. SQL> SELECT RPAD('Help4code', 15, '_') FROM dual;
+
+RPAD('HELP4CODE
+---------------
+Help4code______
+
+10. SQL> SELECT LPAD('Help4code', 15, '_') FROM dual;
+
+LPAD('HELP4CODE
+---------------
+______Help4code
+
+11. SQL> SELECT LPAD('Help4code', 15, 'hello') FROM dual;
+
+LPAD('HELP4CODE
+---------------
+hellohHelp4code
+
+12. SQL> SELECT LENGTH('Help4code Elearning') FROM dual;
+
+LENGTH('HELP4CODEELEARNING')
+----------------------------
+                          19
+
+13. SQL> SELECT LENGTH('Help4code Elearning') AS "LENGTH" FROM dual;
+
+    LENGTH
+----------
+        19
+
+14. SQL> SELECT CONCAT('Help4code', ' Elearning') FROM dual;
+
+CONCAT('HELP4CODE',
+-------------------
+Help4code Elearning
+
+15. SQL> SELECT CONCAT('Help4code', ' Elearning') AS "ADD String" FROM dual;
+
+ADD String
+-------------------
+Help4code Elearning
+
+16. SQL> SELECT REPLACE('111help4code111', '111') FROM dual;
+
+REPLACE('
+---------
+help4code
+
+17. SQL> SELECT REVERSE('www.help4code.com') FROM dual;
+
+REVERSE('WWW.HELP
+-----------------
+moc.edoc4pleh.www
+
+18. SQL> SELECT ASCII('A') FROM dual;
+
+ASCII('A')
+----------
+        65
+
+19. SQL> SELECT ASCII('t') FROM dual;
+
+ASCII('T')
+----------
+       116
+
+20. SQL> SELECT INSTR('help4codeElearning', 'learn') FROM dual;
+
+INSTR('HELP4CODEELEARNING','LEARN')
+-----------------------------------
+                                 11
