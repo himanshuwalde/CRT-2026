@@ -1,0 +1,176 @@
+1. COUNT FUNCTION:
+
+    SQL> SELECT COUNT(*) FROM Employee;
+    
+      COUNT(*)
+    ----------
+            10
+    
+    SQL> SELECT COUNT(EMPNAME) FROM Employee;
+    
+    COUNT(EMPNAME)
+    --------------
+                10
+    
+    SQL> SELECT COUNT(EMPCITY) FROM Employee;
+    
+    COUNT(EMPCITY)
+    --------------
+                10
+    
+    SQL> SELECT COUNT(EMPCITY) FROM Employee WHERE EMPCITY = 'Nagpur';
+    
+    COUNT(EMPCITY)
+    --------------
+                 2
+    
+    SQL> SELECT COUNT(DISTINCT EMPCITY) FROM Employee;
+    
+    COUNT(DISTINCTEMPCITY)
+    ----------------------
+                         8
+    
+    SQL> SELECT COUNT(DISTINCT EMPNAME) FROM Employee;
+    
+    COUNT(DISTINCTEMPNAME)
+    ----------------------
+                        10
+
+2. SUM FUNCTION:
+
+    SQL> SELECT SUM(EMPSALARY) FROM Employee;
+    
+    SUM(EMPSALARY)
+    --------------
+         453000.75
+    
+    SQL> SELECT SUM(EMPSALARY) AS "Total Salary" FROM Employee WHERE EMPSALARY > 20000;
+    
+    Total Salary
+    ------------
+       423000.75
+    
+    SQL> SELECT SUM(DISTINCT EMPSALARY) AS "Total Salary" FROM Employee WHERE EMPSALARY > 20000;
+    
+    Total Salary
+    ------------
+       423000.75
+    
+    SQL> SELECT EMPCITY, SUM(EMPSALARY) AS "Total Salary" FROM Employee GROUP BY EMPCITY;
+    
+    EMPCITY              Total Salary
+    -------------------- ------------
+    Delhi                    48000.75
+    Mumbai                      60000
+    Goa                         30000
+    Bhubaneswar                 50000
+    Nagpur                      65000
+    Hyderabad                   10000
+    Pune                       125000
+    Kerala                      65000
+    
+    8 rows selected.
+
+3. AVERAGE FUNCTION:
+
+    SQL> SELECT AVG(EMPSALARY) FROM Employee;
+    
+    AVG(EMPSALARY)
+    --------------
+         45300.075
+    
+    SQL> SELECT AVG(EMPSALARY) AS "Average Salary" FROM Employee;
+    
+    Average Salary
+    --------------
+         45300.075
+    
+    SQL> SELECT AVG(EMPSALARY) AS "Average Salary" FROM Employee GROUP BY EMPNAME;
+    
+    Average Salary
+    --------------
+          48000.75
+             20000
+             30000
+             25000
+             60000
+             45000
+             10000
+             65000
+            100000
+             50000
+    
+    10 rows selected.
+    
+    SQL> SELECT AVG(EMPSALARY) AS "Average Salary" FROM Employee GROUP BY EMPCITY;
+    
+    Average Salary
+    --------------
+          48000.75
+             60000
+             30000
+             50000
+             32500
+             10000
+             62500
+             65000
+    
+    8 rows selected.
+
+4. MINIMUM FUCTION:
+
+    SQL> SELECT MIN(EMPSALARY) FROM Employee;
+    
+    MIN(EMPSALARY)
+    --------------
+             10000
+    
+    SQL> SELECT MIN(EMPSALARY) AS "Minimum Salary" FROM Employee;
+    
+    Minimum Salary
+    --------------
+             10000
+    
+    SQL> SELECT MIN(EMPSALARY) AS "Minimum Salary" FROM Employee GROUP BY EMPCITY;
+    
+    Minimum Salary
+    --------------
+          48000.75
+             60000
+             30000
+             50000
+             20000
+             10000
+             25000
+             65000
+    
+    8 rows selected.
+
+5. MAXIMUM FUNCTION:
+
+    SQL> SELECT MAX(EMPSALARY) FROM Employee;
+    
+    MAX(EMPSALARY)
+    --------------
+            100000
+    
+    SQL> SELECT MAX(EMPSALARY) AS "MAXIMUM Salary" FROM Employee;
+    
+    MAXIMUM Salary
+    --------------
+            100000
+    
+    SQL> SELECT MAX(EMPSALARY) AS "MAXIMUM Salary" FROM Employee GROUP BY EMPCITY;
+    
+    MAXIMUM Salary
+    --------------
+          48000.75
+             60000
+             30000
+             50000
+             45000
+             10000
+            100000
+             65000
+    
+    8 rows selected.
