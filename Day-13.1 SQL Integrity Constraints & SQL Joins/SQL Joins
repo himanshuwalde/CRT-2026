@@ -1,134 +1,126 @@
-SQL> CREATE TABLE department5 (
-  2      DNO NUMBER(4),
-  3      DNAME VARCHAR2(10),
-  4      ENO NUMBER(4),
-  5      ECITY VARCHAR2(9),
-  6      FOREIGN KEY (ENO) REFERENCES emp5(ENO)
-  7  );
+CREATE TABLE Employee (
+    EMPID NUMBER,
+    EMPNAME VARCHAR2(20),
+    EMPCITY VARCHAR2(20),
+    EMPSALARY NUMBER(10,2),
+    PINCODE NUMBER(6)
+);
 
-Table created.
+SQL> INSERT INTO Employee VALUES (101, 'Amit',   'Nashik', 50000, 422001);
 
-SQL> DESC department5;
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- DNO                                                NUMBER(4)
- DNAME                                              VARCHAR2(10)
- ENO                                                NUMBER(4)
- ECITY                                              VARCHAR2(9)
+1 row created.
 
+SQL> INSERT INTO Employee VALUES (102, 'Rahul',  'Nashik', 55000, 422001);
+
+1 row created.
+
+SQL> INSERT INTO Employee VALUES (103, 'Priya',  'Pune',   60000, 411001);
+
+1 row created.
+
+SQL> INSERT INTO Employee VALUES (104, 'Neha',   'Pune',   58000, 411001);
+
+1 row created.
+
+SQL> INSERT INTO Employee VALUES (105, 'Karan',  'Mumbai', 65000, 400001);
+
+1 row created.
+
+SQL> INSERT INTO Employee VALUES (106, 'Sneha',  'Nagpur', 52000, 440001);
+
+1 row created.
+
+SQL> INSERT INTO Employee VALUES (107, 'Rohit',  'Delhi',  70000, 110001);
+
+1 row created.
+
+SQL> SELECT * FROM Employee;
+
+     EMPID EMPNAME              EMPCITY               EMPSALARY    PINCODE
+---------- -------------------- -------------------- ---------- ----------
+       101 Amit                 Nashik                    50000     422001
+       102 Rahul                Nashik                    55000     422001
+       103 Priya                Pune                      60000     411001
+       104 Neha                 Pune                      58000     411001
+       105 Karan                Mumbai                    65000     400001
+       106 Sneha                Nagpur                    52000     440001
+       107 Rohit                Delhi                     70000     110001
+
+7 rows selected.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 SQL> CREATE TABLE department (
-  2      dno INT PRIMARY KEY,
-  3      dname VARCHAR2(50)
-  4  );
+        dno INT PRIMARY KEY,
+        dname VARCHAR2(50)
+    );
 
 Table created.
 
-SQL> INSERT INTO department VALUES (1, 'HR');
+SQL> INSERT INTO Department VALUES (1, 'IT');
 
 1 row created.
 
-SQL> INSERT INTO department VALUES (2, 'IT');
+SQL> INSERT INTO Department VALUES (2, 'HR');
 
 1 row created.
 
-SQL> INSERT INTO department VALUES (3, 'Finance');
+SQL> INSERT INTO Department VALUES (3, 'Finance');
 
 1 row created.
 
-SQL> INSERT INTO department VALUES (4, 'Marketing');
+SQL> INSERT INTO Department VALUES (4, 'Sales');
 
 1 row created.
 
-SQL> INSERT INTO department VALUES (5, 'Sales');
-
-1 row created.
-
-SQL> INSERT INTO department VALUES (6, 'Admin');
-
-1 row created.
-
-SQL> INSERT INTO department VALUES (7, 'Production');
-
-1 row created.
-
-SQL> INSERT INTO department VALUES (8, 'Testing');
-
-1 row created.
-
-SQL> INSERT INTO department VALUES (9, 'Support');
-
-1 row created.
-
-SQL> INSERT INTO department VALUES (10, 'Research');
-
-1 row created.
-
-SQL> SELECT * FROM department;
+SQL> SELECT * FROM Department;
 
        DNO DNAME
 ---------- --------------------------------------------------
-         1 HR
-         2 IT
+         1 IT
+         2 HR
          3 Finance
-         4 Marketing
-         5 Sales
-         6 Admin
-         7 Production
-         8 Testing
-         9 Support
-        10 Research
-
-10 rows selected.
+         4 Sales
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 SQL> CREATE TABLE Orders (
-  2      OID INT PRIMARY KEY,
-  3      ProductName VARCHAR(50),
-  4      Amount DECIMAL(10,2),
-  5      eno INT,
-  6      dno INT
-  7  );
+        OID INT PRIMARY KEY,
+        ProductName VARCHAR(50),
+        Amount DECIMAL(10,2),
+        eno INT,
+        dno INT
+    );
 
 Table created.
 
-SQL> INSERT INTO Orders VALUES (1001, 'Laptop', 55000, 101, 1);
+SQL> INSERT INTO Orders VALUES (1001, 'Laptop',   55000, 101, 1);
 
 1 row created.
 
-SQL> INSERT INTO Orders VALUES (1002, 'Mouse', 1000, 102, 2);
+SQL>    INSERT INTO Orders VALUES (1002, 'Mouse',     1000, 102, 2);
 
 1 row created.
 
-SQL> INSERT INTO Orders VALUES (1003, 'Keyboard', 1500, 103, 1);
+SQL> INSERT INTO Orders VALUES (1003, 'Keyboard',  1500, 103, 1);
 
 1 row created.
 
-SQL> INSERT INTO Orders VALUES (1004, 'Monitor', 12000, 105, 2);
+SQL> INSERT INTO Orders VALUES (1004, 'Monitor',  12000, 105, 2);
 
 1 row created.
 
-SQL> INSERT INTO Orders VALUES (1005, 'Printer', 8000, 108, 3);
+SQL> INSERT INTO Orders VALUES (1005, 'Printer',   8000, 108, 3);
 
 1 row created.
 
-SQL> INSERT INTO Orders VALUES (1006, 'Scanner', 7000, 109, 4);
+SQL> INSERT INTO Orders VALUES (1006, 'Scanner',   7000, 109, 4);
 
 1 row created.
 
-SQL> INSERT INTO Orders VALUES (1007, 'Tablet', 25000, 101, 1);
+SQL> INSERT INTO Orders VALUES (1007, 'Tablet',   25000, 101, 1);
 
 1 row created.
 
-SQL> INSERT INTO Orders VALUES (1008, 'Mobile', 20000, 110, 2);
-
-1 row created.
-
-SQL> INSERT INTO Orders VALUES (1009, 'Camera', 30000, 105, 2);
-
-1 row created.
-
-SQL> INSERT INTO Orders VALUES (1010, 'Speaker', 5000, 108, 3);
+SQL> INSERT INTO Orders VALUES (1008, 'Camera',   30000, 110, 3);
 
 1 row created.
 
@@ -143,8 +135,152 @@ SQL> SELECT * FROM Orders;
       1005 Printer                                                  8000        108          3
       1006 Scanner                                                  7000        109          4
       1007 Tablet                                                  25000        101          1
-      1008 Mobile                                                  20000        110          2
-      1009 Camera                                                  30000        105          2
-      1010 Speaker                                                  5000        108          3
+      1008 Camera                                                  30000        110          3
 
-10 rows selected.
+8 rows selected.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. INNER JOIN:
+    SQL> SELECT Orders.OID,
+               Orders.ProductName,
+               Orders.Amount,
+               Employee.EMPNAME
+        FROM Orders
+        INNER JOIN Employee
+        ON Orders.eno = Employee.EMPID;
+    
+           OID PRODUCTNAME                                            AMOUNT EMPNAME
+    ---------- -------------------------------------------------- ---------- --------------------
+          1007 Tablet                                                  25000 Amit
+          1001 Laptop                                                  55000 Amit
+          1002 Mouse                                                    1000 Rahul
+          1003 Keyboard                                                 1500 Priya
+          1004 Monitor                                                 12000 Karan
+    
+    SQL> SELECT Orders.OID,
+               Orders.ProductName,
+               Orders.Amount,
+               Employee.EMPNAME,
+               Department.dname
+        FROM Orders
+        INNER JOIN Employee
+        ON Orders.eno = Employee.EMPID
+        INNER JOIN Department
+       ON Orders.dno = Department.dno;
+    
+           OID PRODUCTNAME                                            AMOUNT EMPNAME              DNAME
+    ---------- -------------------------------------------------- ---------- -------------------- --------------------------------------------------
+          1007 Tablet                                                  25000 Amit                 IT
+          1001 Laptop                                                  55000 Amit                 IT
+          1002 Mouse                                                    1000 Rahul                HR
+          1003 Keyboard                                                 1500 Priya                IT
+          1004 Monitor                                                 12000 Karan                HR
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. LEFT JOIN:
+    SQL> SELECT Employee.EMPNAME,
+               Orders.OID
+        FROM Employee
+        LEFT JOIN Orders
+        ON Employee.EMPID = Orders.eno
+        ORDER BY Employee.EMPNAME;
+    
+    EMPNAME                     OID
+    -------------------- ----------
+    Amit                       1001
+    Amit                       1007
+    Karan                      1004
+    Neha
+    Priya                      1003
+    Rahul                      1002
+    Rohit
+    Sneha
+    
+    8 rows selected.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. RIGHT JOIN:
+    SQL> SELECT Orders.OID,
+               Employee.EMPNAME
+        FROM Employee
+        RIGHT JOIN Orders
+        ON Employee.EMPID = Orders.eno
+        ORDER BY Orders.OID;
+    
+           OID EMPNAME
+    ---------- --------------------
+          1001 Amit
+          1002 Rahul
+          1003 Priya
+          1004 Karan
+          1005
+          1006
+          1007 Amit
+          1008
+    
+    8 rows selected.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. FULL JOIN:
+    SQL> SELECT Employee.EMPNAME,
+               Orders.OID
+        FROM Employee
+        FULL OUTER JOIN Orders
+        ON Employee.EMPID = Orders.eno
+        ORDER BY Employee.EMPNAME;
+    
+    EMPNAME                     OID
+    -------------------- ----------
+    Amit                       1007
+    Amit                       1001
+    Karan                      1004
+    Neha
+    Priya                      1003
+    Rahul                      1002
+    Rohit
+    Sneha
+                               1005
+                               1006
+                               1008
+    
+    11 rows selected.
+    
+    SQL> SELECT Employee.EMPNAME,
+               Orders.OID
+        FROM Employee
+        FULL JOIN Orders
+        ON Employee.EMPID = Orders.eno
+        ORDER BY Employee.EMPNAME;
+    
+    EMPNAME                     OID
+    -------------------- ----------
+    Amit                       1007
+    Amit                       1001
+    Karan                      1004
+    Neha
+    Priya                      1003
+    Rahul                      1002
+    Rohit
+    Sneha
+                               1005
+                               1006
+                               1008
+    
+    11 rows selected.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+5. SELF JOIN:
+    SQL> SELECT A.EMPNAME AS Employee1,
+               B.EMPNAME AS Employee2,
+               A.EMPCITY
+        FROM Employee A
+        JOIN Employee B
+        ON A.EMPCITY = B.EMPCITY
+        AND A.EMPID < B.EMPID
+        ORDER BY A.EMPCITY;
+    
+    EMPLOYEE1            EMPLOYEE2            EMPCITY
+    -------------------- -------------------- --------------------
+    Amit                 Rahul                Nashik
+    Priya                Neha                 Pune
