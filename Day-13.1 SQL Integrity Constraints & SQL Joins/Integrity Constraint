@@ -1,10 +1,10 @@
-1. NOT NULL & DEFAULT:
+1. NOT NULL:
     SQL> CREATE TABLE Person (
-      2  PID number(4) NOT NULL,
-      3  FNAME varchar2(225) NOT NULL,
-      4  LNAME varchar2(255) NOT NULL,
-      5  AGE number(3) DEFAULT 22
-      6  );
+        PID number(4) NOT NULL,
+        FNAME varchar2(225) NOT NULL,
+        LNAME varchar2(255) NOT NULL,
+        AGE number(3)
+        );
     
     Table created.
     
@@ -16,214 +16,113 @@
      LNAME                                     NOT NULL VARCHAR2(255)
      AGE                                                NUMBER(3)
 
-2. PRIMARY KEY:
-SQL> CREATE TABLE Person2 (
-  2      PID NUMBER(4) NOT NULL PRIMARY KEY,
-  3      FNAME VARCHAR(9) NOT NULL,
-  4      LNAME VARCHAR(9),
-  5      Age NUMBER(3)
-  6  );
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Table created.
-
-SQL> DESC Person2;
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- PID                                       NOT NULL NUMBER(4)
- FNAME                                     NOT NULL VARCHAR2(9)
- LNAME                                              VARCHAR2(9)
- AGE                                                NUMBER(3)
-
-3. COMPOSITE PRIMARY KEY:
-SQL> CREATE TABLE Person3 (
-  2      PID NUMBER(4) NOT NULL,
-  3      FNAME VARCHAR(9) NOT NULL,
-  4      LNAME VARCHAR(9),
-  5      Age NUMBER(3),
-  6      CONSTRAINT PK_Person PRIMARY KEY (PID, LNAME)
-  7  );
-
-Table created.
-
-SQL> DESC Person3;
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- PID                                       NOT NULL NUMBER(4)
- FNAME                                     NOT NULL VARCHAR2(9)
- LNAME                                     NOT NULL VARCHAR2(9)
- AGE                                                NUMBER(3)
-
-4. FOREIGN KEY:
-SQL> CREATE TABLE emp5 (
-  2      ENO NUMBER(5) NOT NULL PRIMARY KEY,
-  3      ENAME CHAR(10),
-  4      EMOB NUMBER(10),
-  5      ESAL NUMBER(8,2),
-  6      EADD VARCHAR2(20),
-  7      ECITY CHAR(11),
-  8      EDOJ DATE
-  9  );
-
-Table created.
-
-SQL> DESC emp5;
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- ENO                                       NOT NULL NUMBER(5)
- ENAME                                              CHAR(10)
- EMOB                                               NUMBER(10)
- ESAL                                               NUMBER(8,2)
- EADD                                               VARCHAR2(20)
- ECITY                                              CHAR(11)
- EDOJ                                               DATE
-
-SQL> CREATE TABLE department5 (
-  2      DNO NUMBER(4),
-  3      DNAME VARCHAR2(10),
-  4      ENO NUMBER(4),
-  5      ECITY VARCHAR2(9),
-  6      FOREIGN KEY (ENO) REFERENCES emp5(ENO)
-  7  );
-
-Table created.
-
-SQL> DESC department5;
- Name                                      Null?    Type
- ----------------------------------------- -------- ----------------------------
- DNO                                                NUMBER(4)
- DNAME                                              VARCHAR2(10)
- ENO                                                NUMBER(4)
- ECITY                                              VARCHAR2(9)
+2. DEFAULT:
+    SQL> CREATE TABLE Person (
+            PID number(4) NOT NULL,
+            FNAME varchar2(225) NOT NULL,
+            LNAME varchar2(255) NOT NULL,
+            AGE number(3) DEFAULT 22
+            );
+        
+        Table created.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-SQL> CREATE TABLE department (
-  2      dno INT PRIMARY KEY,
-  3      dname VARCHAR2(50)
-  4  );
+3. PRIMARY KEY:
+    SQL> CREATE TABLE Person2 (
+            PID NUMBER(4) NOT NULL PRIMARY KEY,
+            FNAME VARCHAR(9) NOT NULL,
+            LNAME VARCHAR(9),
+            Age NUMBER(3)
+        );
+    
+    Table created.
+    
+    SQL> DESC Person2;
+     Name                                      Null?    Type
+     ----------------------------------------- -------- ----------------------------
+     PID                                       NOT NULL NUMBER(4)
+     FNAME                                     NOT NULL VARCHAR2(9)
+     LNAME                                              VARCHAR2(9)
+     AGE                                                NUMBER(3)
 
-Table created.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-SQL> INSERT INTO department VALUES (1, 'HR');
+4. COMPOSITE PRIMARY KEY:
+    SQL> CREATE TABLE Person3 (
+            PID NUMBER(4) NOT NULL,
+            FNAME VARCHAR(9) NOT NULL,
+            LNAME VARCHAR(9),
+            Age NUMBER(3),
+            CONSTRAINT PK_Person PRIMARY KEY (PID, LNAME)
+        );
+    
+    Table created.
+    
+    SQL> DESC Person3;
+     Name                                      Null?    Type
+     ----------------------------------------- -------- ----------------------------
+     PID                                       NOT NULL NUMBER(4)
+     FNAME                                     NOT NULL VARCHAR2(9)
+     LNAME                                     NOT NULL VARCHAR2(9)
+     AGE                                                NUMBER(3)
 
-1 row created.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-SQL> INSERT INTO department VALUES (2, 'IT');
+5. FOREIGN KEY:
+    SQL> CREATE TABLE emp5 (
+            ENO NUMBER(5) NOT NULL PRIMARY KEY,
+            ENAME CHAR(10),
+            EMOB NUMBER(10),
+            ESAL NUMBER(8,2),
+            EADD VARCHAR2(20),
+            ECITY CHAR(11),
+            EDOJ DATE
+        );
+    
+    Table created.
+    
+    SQL> DESC emp5;
+     Name                                      Null?    Type
+     ----------------------------------------- -------- ----------------------------
+     ENO                                       NOT NULL NUMBER(5)
+     ENAME                                              CHAR(10)
+     EMOB                                               NUMBER(10)
+     ESAL                                               NUMBER(8,2)
+     EADD                                               VARCHAR2(20)
+     ECITY                                              CHAR(11)
+     EDOJ                                               DATE
 
-1 row created.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-SQL> INSERT INTO department VALUES (3, 'Finance');
+6. UNIQUE:
+    SQL> CREATE TABLE Person (
+            PID NUMBER(4),
+            FNAME VARCHAR2(25),
+            LNAME VARCHAR2(25),
+            EMAIL VARCHAR2(50) UNIQUE
+        );
+    
+    Table created.
 
-1 row created.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-SQL> INSERT INTO department VALUES (4, 'Marketing');
+7. CHECK:
+    SQL> CREATE TABLE Person (
+            PID NUMBER(4),
+            FNAME VARCHAR2(25),
+            LNAME VARCHAR2(25),
+            AGE NUMBER(3) CHECK (AGE >= 18)
+        );
+    
+    Table created.
 
-1 row created.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-SQL> INSERT INTO department VALUES (5, 'Sales');
-
-1 row created.
-
-SQL> INSERT INTO department VALUES (6, 'Admin');
-
-1 row created.
-
-SQL> INSERT INTO department VALUES (7, 'Production');
-
-1 row created.
-
-SQL> INSERT INTO department VALUES (8, 'Testing');
-
-1 row created.
-
-SQL> INSERT INTO department VALUES (9, 'Support');
-
-1 row created.
-
-SQL> INSERT INTO department VALUES (10, 'Research');
-
-1 row created.
-
-SQL> SELECT * FROM department;
-
-       DNO DNAME
----------- --------------------------------------------------
-         1 HR
-         2 IT
-         3 Finance
-         4 Marketing
-         5 Sales
-         6 Admin
-         7 Production
-         8 Testing
-         9 Support
-        10 Research
-
-10 rows selected.
-
-SQL> CREATE TABLE Orders (
-  2      OID INT PRIMARY KEY,
-  3      ProductName VARCHAR(50),
-  4      Amount DECIMAL(10,2),
-  5      eno INT,
-  6      dno INT
-  7  );
-
-Table created.
-
-SQL> INSERT INTO Orders VALUES (1001, 'Laptop', 55000, 101, 1);
-
-1 row created.
-
-SQL> INSERT INTO Orders VALUES (1002, 'Mouse', 1000, 102, 2);
-
-1 row created.
-
-SQL> INSERT INTO Orders VALUES (1003, 'Keyboard', 1500, 103, 1);
-
-1 row created.
-
-SQL> INSERT INTO Orders VALUES (1004, 'Monitor', 12000, 105, 2);
-
-1 row created.
-
-SQL> INSERT INTO Orders VALUES (1005, 'Printer', 8000, 108, 3);
-
-1 row created.
-
-SQL> INSERT INTO Orders VALUES (1006, 'Scanner', 7000, 109, 4);
-
-1 row created.
-
-SQL> INSERT INTO Orders VALUES (1007, 'Tablet', 25000, 101, 1);
-
-1 row created.
-
-SQL> INSERT INTO Orders VALUES (1008, 'Mobile', 20000, 110, 2);
-
-1 row created.
-
-SQL> INSERT INTO Orders VALUES (1009, 'Camera', 30000, 105, 2);
-
-1 row created.
-
-SQL> INSERT INTO Orders VALUES (1010, 'Speaker', 5000, 108, 3);
-
-1 row created.
-
-SQL> SELECT * FROM Orders;
-
-       OID PRODUCTNAME                                            AMOUNT        ENO        DNO
----------- -------------------------------------------------- ---------- ---------- ----------
-      1001 Laptop                                                  55000        101          1
-      1002 Mouse                                                    1000        102          2
-      1003 Keyboard                                                 1500        103          1
-      1004 Monitor                                                 12000        105          2
-      1005 Printer                                                  8000        108          3
-      1006 Scanner                                                  7000        109          4
-      1007 Tablet                                                  25000        101          1
-      1008 Mobile                                                  20000        110          2
-      1009 Camera                                                  30000        105          2
-      1010 Speaker                                                  5000        108          3
-
-10 rows selected.
+8. INDEX:
+    SQL> CREATE INDEX idx_fname
+        ON Person(FNAME);
+    
+    Index created.
