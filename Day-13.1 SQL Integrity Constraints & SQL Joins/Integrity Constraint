@@ -60,14 +60,6 @@
         );
     
     Table created.
-    
-    SQL> DESC Person3;
-     Name                                      Null?    Type
-     ----------------------------------------- -------- ----------------------------
-     PID                                       NOT NULL NUMBER(4)
-     FNAME                                     NOT NULL VARCHAR2(9)
-     LNAME                                     NOT NULL VARCHAR2(9)
-     AGE                                                NUMBER(3)
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -83,17 +75,16 @@
         );
     
     Table created.
+
+    SQL> CREATE TABLE department5 (
+      2      DNO NUMBER(4),
+      3      DNAME VARCHAR2(10),
+      4      ENO NUMBER(4),
+      5      ECITY VARCHAR2(9),
+      6      FOREIGN KEY (ENO) REFERENCES emp5(ENO)
+      7  );
     
-    SQL> DESC emp5;
-     Name                                      Null?    Type
-     ----------------------------------------- -------- ----------------------------
-     ENO                                       NOT NULL NUMBER(5)
-     ENAME                                              CHAR(10)
-     EMOB                                               NUMBER(10)
-     ESAL                                               NUMBER(8,2)
-     EADD                                               VARCHAR2(20)
-     ECITY                                              CHAR(11)
-     EDOJ                                               DATE
+    Table created.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
