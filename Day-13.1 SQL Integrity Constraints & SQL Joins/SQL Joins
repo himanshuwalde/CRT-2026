@@ -1,0 +1,150 @@
+SQL> CREATE TABLE department5 (
+  2      DNO NUMBER(4),
+  3      DNAME VARCHAR2(10),
+  4      ENO NUMBER(4),
+  5      ECITY VARCHAR2(9),
+  6      FOREIGN KEY (ENO) REFERENCES emp5(ENO)
+  7  );
+
+Table created.
+
+SQL> DESC department5;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DNO                                                NUMBER(4)
+ DNAME                                              VARCHAR2(10)
+ ENO                                                NUMBER(4)
+ ECITY                                              VARCHAR2(9)
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+SQL> CREATE TABLE department (
+  2      dno INT PRIMARY KEY,
+  3      dname VARCHAR2(50)
+  4  );
+
+Table created.
+
+SQL> INSERT INTO department VALUES (1, 'HR');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (2, 'IT');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (3, 'Finance');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (4, 'Marketing');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (5, 'Sales');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (6, 'Admin');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (7, 'Production');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (8, 'Testing');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (9, 'Support');
+
+1 row created.
+
+SQL> INSERT INTO department VALUES (10, 'Research');
+
+1 row created.
+
+SQL> SELECT * FROM department;
+
+       DNO DNAME
+---------- --------------------------------------------------
+         1 HR
+         2 IT
+         3 Finance
+         4 Marketing
+         5 Sales
+         6 Admin
+         7 Production
+         8 Testing
+         9 Support
+        10 Research
+
+10 rows selected.
+
+SQL> CREATE TABLE Orders (
+  2      OID INT PRIMARY KEY,
+  3      ProductName VARCHAR(50),
+  4      Amount DECIMAL(10,2),
+  5      eno INT,
+  6      dno INT
+  7  );
+
+Table created.
+
+SQL> INSERT INTO Orders VALUES (1001, 'Laptop', 55000, 101, 1);
+
+1 row created.
+
+SQL> INSERT INTO Orders VALUES (1002, 'Mouse', 1000, 102, 2);
+
+1 row created.
+
+SQL> INSERT INTO Orders VALUES (1003, 'Keyboard', 1500, 103, 1);
+
+1 row created.
+
+SQL> INSERT INTO Orders VALUES (1004, 'Monitor', 12000, 105, 2);
+
+1 row created.
+
+SQL> INSERT INTO Orders VALUES (1005, 'Printer', 8000, 108, 3);
+
+1 row created.
+
+SQL> INSERT INTO Orders VALUES (1006, 'Scanner', 7000, 109, 4);
+
+1 row created.
+
+SQL> INSERT INTO Orders VALUES (1007, 'Tablet', 25000, 101, 1);
+
+1 row created.
+
+SQL> INSERT INTO Orders VALUES (1008, 'Mobile', 20000, 110, 2);
+
+1 row created.
+
+SQL> INSERT INTO Orders VALUES (1009, 'Camera', 30000, 105, 2);
+
+1 row created.
+
+SQL> INSERT INTO Orders VALUES (1010, 'Speaker', 5000, 108, 3);
+
+1 row created.
+
+SQL> SELECT * FROM Orders;
+
+       OID PRODUCTNAME                                            AMOUNT        ENO        DNO
+---------- -------------------------------------------------- ---------- ---------- ----------
+      1001 Laptop                                                  55000        101          1
+      1002 Mouse                                                    1000        102          2
+      1003 Keyboard                                                 1500        103          1
+      1004 Monitor                                                 12000        105          2
+      1005 Printer                                                  8000        108          3
+      1006 Scanner                                                  7000        109          4
+      1007 Tablet                                                  25000        101          1
+      1008 Mobile                                                  20000        110          2
+      1009 Camera                                                  30000        105          2
+      1010 Speaker                                                  5000        108          3
+
+10 rows selected.
