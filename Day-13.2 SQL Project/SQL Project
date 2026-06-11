@@ -8,12 +8,39 @@ SQL> CREATE TABLE CUSTOMER (
 
 Table created.
 
+SQL> SELECT * FROM CUSTOMER;
+
+CUST_ F_NAME                                             L_NAME                                             AREA       PHONE_NO
+----- -------------------------------------------------- -------------------------------------------------- ---------- ----------
+C01   Rahul                                              Sharma                                             DA         9876543210
+C02   Priya                                              Patil                                              MU         9876543211
+C03   Pooja                                              Joshi                                              GH         9876543212
+C04   Amit                                               Verma                                              DA         9876543213
+C05   Neha                                               Singh                                              JK         9876543214
+C06   Rajesh                                             Kumar                                              MU         9876543215
+C07   Kiran                                              Patel                                              GH         9876543216
+C08   Sonal                                              Mehta                                              DA         9876543217
+C09   Vikas                                              Gupta                                              JK         9876543218
+C10   Preeti                                             Desai                                              MU         9876543219
+
+10 rows selected.
+
 SQL> CREATE TABLE CATEGORY (
   2      CATEGORY_ID VARCHAR2(5) PRIMARY KEY,
   3      CATEGORY_NAME VARCHAR2(30)
   4  );
 
 Table created.
+
+SQL> SELECT * FROM CATEGORY;
+
+CATEG CATEGORY_NAME
+----- ------------------------------
+CT01  Electronics
+CT02  Clothing
+CT03  Books
+CT04  Home
+CT05  Sports
 
 SQL> CREATE TABLE PRODUCT (
   2      PRODUCT_ID VARCHAR2(5) PRIMARY KEY,
@@ -28,6 +55,23 @@ SQL> CREATE TABLE PRODUCT (
 
 Table created.
 
+SQL> SELECT * FROM PRODUCT;
+
+PRODU PRODUCT_NAME                                       CATEG      PRICE      STOCK
+----- -------------------------------------------------- ----- ---------- ----------
+PR01  Laptop                                             CT01       50000         20
+PR02  Mouse                                              CT01         500        100
+PR03  Keyboard                                           CT01        1200         50
+PR04  TShirt                                             CT02         800         75
+PR05  Jeans                                              CT02        1500         40
+PR06  Oracle Book                                        CT03         650         30
+PR07  Chair                                              CT04        3000         25
+PR08  Table                                              CT04        5000         15
+PR09  Football                                           CT05         900         40
+PR10  Cricket Bat                                        CT05        2500         20
+
+10 rows selected.
+
 SQL> CREATE TABLE ORDERS (
   2      ORDER_ID VARCHAR2(5) PRIMARY KEY,
   3      CUST_ID VARCHAR2(5),
@@ -39,6 +83,21 @@ SQL> CREATE TABLE ORDERS (
   9  );
 
 Table created.
+
+SQL> SELECT * FROM ORDERS;
+
+ORDER CUST_ ORDER_DAT TOTAL_AMOUNT
+----- ----- --------- ------------
+O01   C01   05-JUL-23        50500
+O02   C02   10-JUL-23         1500
+O03   C03   15-AUG-23          650
+O04   C04   20-AUG-23         3000
+O05   C02   22-AUG-23          900
+O06   C05   25-AUG-23         2500
+O07   C06   27-AUG-23         5000
+O08   C07   30-AUG-23          800
+
+8 rows selected.
 
 SQL> CREATE TABLE ORDER_ITEMS (
   2      ORDER_ITEM_ID NUMBER PRIMARY KEY,
@@ -56,6 +115,23 @@ SQL> CREATE TABLE ORDER_ITEMS (
 
 Table created.
 
+SQL> SELECT * FROM ORDER_ITEMS;
+
+ORDER_ITEM_ID ORDER PRODU   QUANTITY      PRICE
+------------- ----- ----- ---------- ----------
+            1 O01   PR01           1      50000
+            2 O01   PR02           1        500
+            3 O02   PR05           1       1500
+            4 O03   PR06           1        650
+            5 O04   PR07           1       3000
+            6 O05   PR09           1        900
+            7 O06   PR10           1       2500
+            8 O07   PR08           1       5000
+            9 O08   PR04           1        800
+           10 O02   PR04           4        800
+
+10 rows selected.
+
 SQL> CREATE TABLE INVOICE (
   2      INV_NO VARCHAR2(5) PRIMARY KEY,
   3      ORDER_ID VARCHAR2(5),
@@ -67,6 +143,21 @@ SQL> CREATE TABLE INVOICE (
   9  );
 
 Table created.
+
+SQL> SELECT * FROM INVOICE;
+
+INV_N ORDER INV_DATE      AMOUNT
+----- ----- --------- ----------
+I01   O01   06-JUL-23      50500
+I02   O02   11-JUL-23       1500
+I03   O03   16-AUG-23        650
+I04   O04   21-AUG-23       3000
+I05   O05   23-AUG-23        900
+I06   O06   26-AUG-23       2500
+I07   O07   28-AUG-23       5000
+I08   O08   31-AUG-23        800
+
+8 rows selected.
 
 SQL> CREATE TABLE PAYMENT (
   2      PAYMENT_ID VARCHAR2(5) PRIMARY KEY,
@@ -80,3 +171,18 @@ SQL> CREATE TABLE PAYMENT (
  10  );
 
 Table created.
+
+SQL> SELECT * FROM PAYMENT;
+
+PAYME INV_N PAYMENT_D PAYMENT_MODE         PAYMENT_STATUS
+----- ----- --------- -------------------- ---------------
+P01   I01   06-JUL-23 UPI                  SUCCESS
+P02   I02   11-JUL-23 CARD                 SUCCESS
+P03   I03   16-AUG-23 UPI                  FAILED
+P04   I04   21-AUG-23 CARD                 SUCCESS
+P05   I05   23-AUG-23 UPI                  SUCCESS
+P06   I06   26-AUG-23 UPI                  SUCCESS
+P07   I07   28-AUG-23 CARD                 SUCCESS
+P08   I08   31-AUG-23 UPI                  FAILED
+
+8 rows selected.
